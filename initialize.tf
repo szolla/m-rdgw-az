@@ -23,10 +23,6 @@ terraform {
  module "m-rdgw-az"
 {
   source   = "./module"
-  #name     = "${var.resource_group_name}"
-  #location = "${var.region}"
-  #resource_group_name = "${var.resource_group_name}"
-  #network_name = "${var.network_name}"
   prefix = "${var.prefix}"
   instance_size = "${var.instance_size}"
   instance_count = "${var.instance_count}"

@@ -1,14 +1,14 @@
-variable "subscription_id" { default = ""}
-variable "client_id" {default = ""}
-variable "client_secret" {default = ""}
-variable "tenant_id" {default = ""}
+#variable "subscription_id" { default = ""}
+#variable "client_id" {default = ""}
+#variable "client_secret" {default = ""}
+#variable "tenant_id" {default = ""}
 
-provider "azurerm" {
-  subscription_id = "${var.subscription_id}"
-  client_id       = "${var.client_id}"
-  client_secret   = "${var.client_secret}"
-  tenant_id       = "${var.tenant_id}"
-}
+#provider "azurerm" {
+#  subscription_id = "${var.subscription_id}"
+#  client_id       = "${var.client_id}"
+#  client_secret   = "${var.client_secret}"
+#  tenant_id       = "${var.tenant_id}"
+#}
 
 #terraform {
 #  backend "azurerm" {

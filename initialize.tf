@@ -10,14 +10,14 @@ provider "azurerm" {
   tenant_id       = "${var.tenant_id}"
 }
 
-terraform {
-  backend "azurerm" {
-    storage_account_name = "fgterratest"
-    container_name       = "testing"
-    key                  = ""
-    access_key           = ""
-  }
-}
+#terraform {
+#  backend "azurerm" {
+#    storage_account_name = "fgterratest"
+#    container_name       = "testing"
+#    key                  = ""
+#    access_key           = ""
+#  }
+#}
 
 # Create a bastion setup
  module "m-rdgw-az"

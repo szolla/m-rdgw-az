@@ -22,7 +22,7 @@ terraform {
 # Create a bastion setup
  module "m-rdgw-az"
 {
-  source   = "./module"
+  source   = "../module"
   prefix = "${var.prefix}"
   instance_size = "${var.instance_size}"
   instance_count = "${var.instance_count}"

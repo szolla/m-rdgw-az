@@ -51,7 +51,7 @@ resource "azurerm_virtual_machine" "rdgw_host" {
   os_profile {
     computer_name  = "hostname"
     admin_username = "rduser"
-    admin_password = ""
+    admin_password = "${var.adminpass}"
   }
   os_profile_windows_config {
     enable_automatic_upgrades = true

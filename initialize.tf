@@ -32,5 +32,5 @@
   bastion_subnet_name = "${var.bastion_subnet_name}"
   vnet_name = "${var.vnet_name}"
   location = "${var.location}"
-
+  adminpass = "${var.adminpass}"
 }

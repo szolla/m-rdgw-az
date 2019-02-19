@@ -1,3 +1,5 @@
+variable "adminpass" {}
+
 variable "prefix" {
   default = "FG"
 }

@@ -1,3 +1,4 @@
+variable "adminpass" {}
 variable "prefix" {}
 
 variable "instance_size" {}

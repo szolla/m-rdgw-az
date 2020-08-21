@@ -1,0 +1,52 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- none
+
+variables:
+- name: cluster_prefix
+  value: 'prod'
+- name: service_connection_name
+  value: 'prod'
+- name: subscriptionid
+  value: 'zzzzzzz-xxxx-xxxx-xxxx-yyyyyyyyy'
+- name: location
+  value: eastus2
+
+
+stages:
+  - stage: Build
+    jobs:
+    - deployment: Build
+      pool:
+       name: windows-latest
+      environment: 'Build'
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - checkout: self
+            - script: |
+                echo Cluster Prefix =$(cluster_prefix)
+              displayName: 'Echo Cluster Prefix'
+              enabled: true
+            - task: AzurePowerShell@4
+              displayName: 'Azure PowerShell: Create StateFile Storage Account'
+              inputs:
+                azureSubscription: '$(service_connection_name)'
+                ScriptType: InlineScript
+                Inline: |
+                  $SubscriptionID = "$(subscriptionid)"
+                  $Cluster_Prefix = "$(cluster_prefix)"
+                  $resourceGroup = $Cluster_Prefix + "-sharedstate"
+                  $StorageAccount = $Cluster_Prefix + "sharedstate"
+                  $location = "centralus"
+
+                  New-AzStorageAccount -ResourceGroupName $resourceGroup -Name $StorageAccount -Location $location -SkuName Standard_ZRS -Kind StorageV2 -EnableHttpsTrafficOnly $true
+
+                  }
+                azurePowerShellVersion: LatestVersion
+              enabled: true

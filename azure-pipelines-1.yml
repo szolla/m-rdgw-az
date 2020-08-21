@@ -10,7 +10,7 @@ variables:
 - name: cluster_prefix
   value: 'prod'
 - name: service_connection_name
-  value: 'prod'
+  value: 'SupportFog'
 - name: subscriptionid
   value: 'zzzzzzz-xxxx-xxxx-xxxx-yyyyyyyyy'
 - name: location

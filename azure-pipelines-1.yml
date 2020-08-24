@@ -47,6 +47,5 @@ stages:
 
                   New-AzStorageAccount -ResourceGroupName $resourceGroup -Name $StorageAccount -Location $location -SkuName Standard_ZRS -Kind StorageV2 -EnableHttpsTrafficOnly $true
 
-                  }
                 azurePowerShellVersion: LatestVersion
               enabled: true
